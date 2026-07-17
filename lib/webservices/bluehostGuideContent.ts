@@ -52,7 +52,8 @@ const signupSteps: GuideStepContent[] = [
     title: 'Visit Bluehost',
     description:
       'Click the button below to open Bluehost. You\'ll land on a page showing the $1.99/mo plan — click Get Started to begin.',
-    imageSrc: '',
+    imageSrc: 'signup-step-01-visit',
+    imageAlt: 'Bluehost homepage showing the $1.99/mo Shared hosting offer and Get Started button',
     link: { href: BLUEHOST_AFFILIATE_URL, label: 'BLUEHOST' },
   },
   {
@@ -60,14 +61,16 @@ const signupSteps: GuideStepContent[] = [
     title: 'Choose your Shared hosting plan',
     description:
       'Choose the Starter plan — it\'s all a one-page business site needs. (Pick Business only if you plan to host multiple sites later.)',
-    imageSrc: '',
+    imageSrc: 'signup-step-02-choose-plan',
+    imageAlt: 'Bluehost plan comparison with Starter and other Shared hosting tiers',
   },
   {
     stepNumber: 3,
     title: 'Register or use an existing domain',
     description:
       'Choose a domain name for your website. You can register a new domain, use one you already own, or select your domain later. Shared hosting includes a free domain for the first year. Domain Privacy + Protection is optional.',
-    imageSrc: '',
+    imageSrc: 'signup-step-03-domain',
+    imageAlt: 'Bluehost domain search with register, use existing, or choose later options',
     tips: ['Prefer a .com if available — it tends to rank better in search results.'],
   },
   {
@@ -75,16 +78,16 @@ const signupSteps: GuideStepContent[] = [
     title: 'Create your Bluehost account',
     description:
       'Create your account with an email address and a secure password. You can also sign up with Google, Apple, or GitHub if you prefer. Save your login details — you will need them to access your portal.',
-    // Google sign-in screen — confirmed working from Bluehost CDN
-    imageSrc: `${BH_CDN}/account/am-signin-google.png`,
-    imageAlt: 'Bluehost account sign-in with Google option',
+    imageSrc: 'signup-step-04-create-account',
+    imageAlt: 'Bluehost checkout — create account with email, password, or social sign-in',
   },
   {
     stepNumber: 5,
     title: 'Review recommended add-ons',
     description:
       'Bluehost may suggest optional add-ons such as CodeGuard (backups), eCommerce tools, or Yoast (SEO). These are not required for a standard business site — skip or uncheck any you do not need.',
-    imageSrc: '',
+    imageSrc: 'signup-step-05-addons',
+    imageAlt: 'Recommended add-ons with optional Website Security, SEO, and backup checkboxes',
     tips: optionalAddons.map((a) => `${a.name}: ${a.desc}`),
   },
   {
@@ -92,21 +95,24 @@ const signupSteps: GuideStepContent[] = [
     title: 'Enter your billing information',
     description:
       'In the Billing Information section, enter your payment details and choose your preferred method: credit card, debit card, Google Pay, or PayPal.',
-    imageSrc: '',
+    imageSrc: 'signup-step-06-billing',
+    imageAlt: 'Billing information with Credit Card, Google Pay, and PayPal payment options',
   },
   {
     stepNumber: 7,
     title: 'Select your billing term',
     description:
       'Choose your billing term from the dropdown. Bluehost offers flexible term lengths — a longer term often provides better savings.',
-    imageSrc: '',
+    imageSrc: 'signup-step-07-billing-term',
+    imageAlt: 'Choose Your Term with 3 Years selected as best value at $1.99/mo',
   },
   {
     stepNumber: 8,
     title: 'Choose your data center location',
     description:
       'Select the data center closest to your primary audience. This improves load times for your visitors. For most U.S. businesses, USA Virginia or USA Arizona is a good choice.',
-    imageSrc: '',
+    imageSrc: 'signup-step-08-data-center',
+    imageAlt: 'Data Center dropdown showing USA Arizona selected',
     tips: [
       'Other locations include UK (London), Canada (Toronto), Germany (Frankfurt), and Australia (Sydney).',
     ],
@@ -116,16 +122,16 @@ const signupSteps: GuideStepContent[] = [
     title: 'Review your cart and submit payment',
     description:
       'Review everything in your Shopping Cart — hosting plan, domain, data center, add-ons, and billing term. When it looks correct, click Submit Payment to complete your purchase.',
-    imageSrc: '',
+    imageSrc: 'signup-step-09-cart',
+    imageAlt: 'Shopping cart summary with plan details, total, and Submit Payment button',
   },
   {
     stepNumber: 10,
     title: 'Access your Bluehost Portal',
     description:
       'After payment, you will receive an order confirmation email from Bluehost. Log in to the Bluehost Portal to manage your account — then continue to the next section to add MHG Strategy as an admin.',
-    // My Profile / profile icon — confirmed working from Bluehost CDN
-    imageSrc: `${BH_CDN}/account/am-account-my-profile.png`,
-    imageAlt: 'Bluehost Account Manager — profile icon',
+    imageSrc: 'signup-step-10-portal',
+    imageAlt: 'Bluehost Account Manager dashboard after logging in',
     link: { href: BLUEHOST_LOGIN_URL, label: 'Log in to Bluehost' },
   },
 ];
