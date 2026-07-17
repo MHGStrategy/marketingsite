@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import CTAButton from '@/components/CTAButton';
 import FpaIndustrySwitcher from '@/components/portfolio/FpaIndustrySwitcher';
+import RevOpsPortfolioSection from '@/components/portfolio/RevOpsPortfolioSection';
 import WebOpsSiteSlider from '@/components/portfolio/WebOpsSiteSlider';
 import Section from '@/components/Section';
 import { PORTFOLIO, PORTFOLIO_SLIDER } from '@/data/portfolio';
@@ -9,9 +10,9 @@ import { fpaPageContent, fpaVisibleIndustries } from '@/lib/portfolio/multiEntit
 import { buildPageMetadata } from '@/lib/seo/siteMetadata';
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Portfolio | WebOps & FinOps Work | MHG Strategy',
+  title: 'Portfolio | WebOps, RevOps & FinOps Work | MHG Strategy',
   description:
-    'Portfolio showcase: custom websites we design and run for clients, plus multi-industry GL and reporting models for logistics, insurance, and manufacturing.',
+    'Portfolio showcase: WebOps client sites, RevOps lead pipeline and forecasting demos, and multi-industry GL reporting models.',
   path: '/portfolio/',
 });
 
@@ -66,6 +67,8 @@ export default function PortfolioPage() {
         </div>
       </Section>
 
+      <RevOpsPortfolioSection />
+
       <Section className="!pb-0">
         <div className="max-w-5xl mx-auto text-center space-y-4 pb-4">
           <p className="text-sm md:text-base uppercase tracking-[0.2em] text-primary-blue font-semibold">
@@ -89,7 +92,7 @@ export default function PortfolioPage() {
         <FpaIndustrySwitcher industries={fpaVisibleIndustries} />
       </Suspense>
 
-      <Section bgColor="gray">
+      <Section>
         <div className="text-center space-y-6 max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-primary-black">
             Need a website or model like this?

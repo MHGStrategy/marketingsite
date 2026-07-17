@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RevOps | Lead Lifecycle Pipeline | MHG Strategy</title>
+<style>
+  :root{
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f8fafc;
+    --card:#ffffff; --accent:#2563eb; --accent-bg:#eff6ff;
+    --ok:#0f6e56; --ok-bg:#e1f5ee; --warn:#854f0b; --warn-bg:#faeeda;
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); background:var(--bg); line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:900px; margin:0 auto; padding:56px 24px 72px}
+  .eyebrow{text-align:center; letter-spacing:.14em; font-size:13px; font-weight:600; color:var(--accent); text-transform:uppercase; margin:0 0 14px}
+  h1{text-align:center; font-size:clamp(30px,5vw,48px); font-weight:800; letter-spacing:-.02em; margin:0 0 20px}
+  .lede{text-align:center; font-size:18px; color:#334155; max-width:680px; margin:0 auto 12px}
+  .disclaimer{text-align:center; font-size:14px; color:var(--muted); max-width:620px; margin:0 auto 40px}
+  .tabs{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:0 0 44px}
+  .tab{border:1px solid var(--line); background:var(--card); color:#334155; padding:11px 22px; border-radius:999px; font-size:15px; font-weight:600; cursor:pointer; transition:.15s}
+  .tab:hover{border-color:#cbd5e1}
+  .tab.active{background:var(--accent); border-color:var(--accent); color:#fff}
+  .section-label{letter-spacing:.12em; font-size:13px; font-weight:600; color:var(--accent); text-transform:uppercase; margin:0 0 8px}
+  .section-title{font-size:26px; font-weight:800; letter-spacing:-.01em; margin:0 0 6px}
+  .section-sub{color:var(--muted); font-size:15px; margin:0 0 24px}
+  .demo{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:28px}
+  .lead-form{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:18px}
+  .field{display:flex; flex-direction:column; gap:5px}
+  .field.full{grid-column:1 / -1}
+  label{font-size:12px; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:.04em}
+  input,select{font:inherit; font-size:15px; padding:10px 12px; border:1px solid var(--line); border-radius:9px; background:#fff; color:var(--ink)}
+  input:focus,select:focus{outline:none; border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-bg)}
+  .run{grid-column:1 / -1; margin-top:4px; background:var(--ink); color:#fff; border:none; padding:13px; border-radius:10px; font-size:15px; font-weight:700; cursor:pointer; transition:.15s}
+  .run:hover{background:#1e293b}
+  .run:disabled{opacity:.55; cursor:default}
+  .stages{margin-top:26px; display:flex; flex-direction:column; gap:0}
+  .stage{display:flex; gap:16px; align-items:flex-start; opacity:.35; transition:opacity .3s}
+  .stage.on{opacity:1}
+  .rail{display:flex; flex-direction:column; align-items:center}
+  .dot{width:34px; height:34px; border-radius:50%; background:var(--line); color:#fff; display:flex; align-items:center; justify-content:center; font-size:15px; font-weight:700; flex-shrink:0; transition:.3s}
+  .stage.on .dot{background:var(--accent)}
+  .stage.done .dot{background:var(--ok)}
+  .line{width:2px; flex:1; min-height:34px; background:var(--line); margin:2px 0}
+  .stage.done .line{background:var(--ok)}
+  .body{padding-bottom:26px; flex:1}
+  .stage:last-child .body{padding-bottom:0}
+  .stage-name{font-size:16px; font-weight:700; margin:5px 0 3px}
+  .stage-desc{font-size:14px; color:var(--muted); margin:0 0 10px}
+  .out{background:var(--bg); border:1px solid var(--line); border-radius:10px; padding:12px 14px; font-size:13.5px; display:none}
+  .stage.done .out,.stage.on .out{display:block}
+  .kv{display:flex; justify-content:space-between; padding:4px 0; border-bottom:1px dashed var(--line)}
+  .kv:last-child{border-bottom:none}
+  .kv .k{color:var(--muted)}
+  .kv .v{font-weight:600; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13px}
+  .pill{display:inline-block; padding:3px 10px; border-radius:999px; font-size:12px; font-weight:700}
+  .pill.ok{background:var(--ok-bg); color:var(--ok)}
+  .pill.warn{background:var(--warn-bg); color:var(--warn)}
+  .pill.accent{background:var(--accent-bg); color:var(--accent)}
+  .crm{margin-top:2px}
+  .crm-row{display:flex; align-items:center; gap:10px; padding:10px 12px; border:1px solid var(--line); border-radius:10px; background:#fff; margin-top:8px}
+  .avatar{width:36px; height:36px; border-radius:50%; background:var(--accent-bg); color:var(--accent); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px; flex-shrink:0}
+  .crm-meta{flex:1; min-width:0}
+  .crm-name{font-weight:700; font-size:14px}
+  .crm-sub{font-size:12.5px; color:var(--muted)}
+  .foot{text-align:center; margin-top:34px; font-size:13px; color:var(--muted)}
+  body.embed{background:#fff}
+  body.embed .page-chrome{display:none}
+  body.embed .wrap{padding:28px 24px 36px}
+  body.embed .tabs{margin:0 0 28px}
+  body.embed .foot{display:none}
+  @media(max-width:560px){.lead-form{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="page-chrome">
+    <p class="eyebrow">RevOps</p>
+    <h1>Lead lifecycle pipelines</h1>
+    <p class="lede">The path a lead takes from form submission to a routed, enriched CRM record — automated end to end, with nothing re-keyed by hand.</p>
+    <p class="disclaimer">Sample fictitious data for portfolio demonstration. Submit a lead below to watch it move through a representative pipeline architecture.</p>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-motion="inbound">Inbound web lead</button>
+    <button class="tab" data-motion="enrich">Enrichment + scoring</button>
+    <button class="tab" data-motion="expansion">Upsell signal</button>
+  </div>
+
+  <p class="section-label" id="motion-label">Inbound web lead</p>
+  <h2 class="section-title" id="motion-title">Capture to CRM, no copy-paste</h2>
+  <p class="section-sub" id="motion-sub">A form submission flows through enrichment, routing, and CRM sync automatically.</p>
+
+  <div class="demo">
+    <div class="lead-form">
+      <div class="field">
+        <label>Full name</label>
+        <input id="f-name" value="Dana Whitfield">
+      </div>
+      <div class="field">
+        <label>Work email</label>
+        <input id="f-email" value="dana@northgate-logistics.com">
+      </div>
+      <div class="field">
+        <label>Company</label>
+        <input id="f-company" value="Northgate Logistics">
+      </div>
+      <div class="field">
+        <label>Interested in</label>
+        <select id="f-interest">
+          <option>Multi-entity FP&amp;A reporting</option>
+          <option>Website + lead capture</option>
+          <option>Pipeline / forecasting build</option>
+          <option>Full RevOps engagement</option>
+        </select>
+      </div>
+      <button class="run" id="run">Submit lead →</button>
+    </div>
+
+    <div class="stages" id="stages"></div>
+  </div>
+
+  <p class="foot">Representative architecture · FastAPI + Express services · webhook-driven CRM sync</p>
+</div>
+
+<script>
+if (new URLSearchParams(location.search).get('embed') === '1') {
+  document.body.classList.add('embed');
+}
+
+const MOTIONS = {
+  inbound: {
+    label:"Inbound web lead",
+    title:"Capture to CRM, no copy-paste",
+    sub:"A form submission flows through enrichment, routing, and CRM sync automatically.",
+    stages:(d)=>[
+      {n:"Captured",desc:"Form posts to the intake endpoint.",out:[["source","website_form"],["received","just now"],["payload","validated ✓"]]},
+      {n:"Enriched",desc:"Domain and company data appended.",out:[["company",d.company],["industry","Logistics / 3PL"],["size","50–200 employees"]]},
+      {n:"Routed",desc:"Assigned to the right owner by rule.",out:[["rule","industry = logistics"],["owner","S. Daniels"],["sla","respond < 4h"]]},
+      {n:"Synced",desc:"Written to CRM as a new contact + deal.",crm:d}
+    ]
+  },
+  enrich: {
+    label:"Enrichment + scoring",
+    title:"Every lead arrives scored",
+    sub:"Raw form data is enriched and scored before a human ever sees it.",
+    stages:(d)=>[
+      {n:"Captured",desc:"Minimal form fields submitted.",out:[["fields","name, email, company"],["missing","industry, size"]]},
+      {n:"Enriched",desc:"Firmographics resolved from the email domain.",out:[["domain",d.email.split('@')[1]||"—"],["industry","Logistics / 3PL"],["revenue est.","$10M–$50M"]]},
+      {n:"Scored",desc:"Fit score computed from enriched attributes.",out:[["ICP match","high",true],["score","82 / 100"],["tier","A — priority"]]},
+      {n:"Synced",desc:"Scored record lands in CRM, ready to work.",crm:d}
+    ]
+  },
+  expansion: {
+    label:"Upsell signal",
+    title:"Signals routed to the right owner",
+    sub:"An existing account trips an expansion trigger and gets routed automatically.",
+    stages:(d)=>[
+      {n:"Signal detected",desc:"Existing account crosses a usage threshold.",out:[["account",d.company],["trigger","added 3rd entity"],["type","expansion"]]},
+      {n:"Classified",desc:"Signal matched to an upsell play.",out:[["play","multi-entity rollup"],["confidence","high",true]]},
+      {n:"Routed",desc:"Flagged and assigned to the account owner.",out:[["owner","account manager"],["task","expansion outreach"],["sla","action < 2 days"]]},
+      {n:"Logged",desc:"Signal + task written back to the CRM record.",crm:d}
+    ]
+  }
+};
+
+let current = "inbound";
+const stagesEl = document.getElementById('stages');
+const runBtn = document.getElementById('run');
+
+function initials(name){return name.split(' ').map(w=>w[0]).slice(0,2).join('').toUpperCase();}
+
+function readForm(){
+  return {
+    name:document.getElementById('f-name').value||"New Lead",
+    email:document.getElementById('f-email').value||"—",
+    company:document.getElementById('f-company').value||"—",
+    interest:document.getElementById('f-interest').value
+  };
+}
+
+function render(){
+  const m = MOTIONS[current];
+  document.getElementById('motion-label').textContent = m.label;
+  document.getElementById('motion-title').textContent = m.title;
+  document.getElementById('motion-sub').textContent = m.sub;
+  const d = readForm();
+  const stages = m.stages(d);
+  stagesEl.innerHTML = stages.map((s,i)=>{
+    let out = '';
+    if(s.crm){
+      out = `<div class="out crm"><div class="crm-row">
+        <div class="avatar">${initials(s.crm.name)}</div>
+        <div class="crm-meta">
+          <div class="crm-name">${s.crm.name}</div>
+          <div class="crm-sub">${s.crm.company} · ${s.crm.email}</div>
+        </div>
+        <span class="pill accent">${s.crm.interest}</span>
+      </div></div>`;
+    } else if(s.out){
+      out = `<div class="out">${s.out.map(kv=>{
+        const isPill = kv[2]===true;
+        const v = isPill ? `<span class="pill ok">${kv[1]}</span>` : `<span class="v">${kv[1]}</span>`;
+        return `<div class="kv"><span class="k">${kv[0]}</span>${v}</div>`;
+      }).join('')}</div>`;
+    }
+    return `<div class="stage" data-i="${i}">
+      <div class="rail">
+        <div class="dot">${i+1}</div>
+        ${i<stages.length-1?'<div class="line"></div>':''}
+      </div>
+      <div class="body">
+        <div class="stage-name">${s.n}</div>
+        <div class="stage-desc">${s.desc}</div>
+        ${out}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function play(){
+  runBtn.disabled = true;
+  render();
+  const nodes = [...stagesEl.querySelectorAll('.stage')];
+  nodes.forEach(n=>n.classList.remove('on','done'));
+  let i = 0;
+  const step = ()=>{
+    if(i>0) nodes[i-1].classList.add('done');
+    if(i<nodes.length){
+      nodes[i].classList.add('on');
+      i++;
+      setTimeout(step, 850);
+    } else {
+      runBtn.disabled = false;
+    }
+  };
+  step();
+}
+
+document.querySelectorAll('.tab').forEach(t=>{
+  t.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    current = t.dataset.motion;
+    render();
+  });
+});
+runBtn.addEventListener('click', play);
+render();
+</script>
+</body>
+</html>

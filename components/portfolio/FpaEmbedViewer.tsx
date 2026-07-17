@@ -43,10 +43,10 @@ export default function FpaEmbedViewer({
           allowFullScreen
         />
       </div>
-      <p className="text-sm text-gray-600">
+      <p className="text-sm text-gray-400">
         {downloadsEnabled
           ? 'If the preview does not load, use the HTML tour below or download the full workbook.'
-          : 'If the preview does not load, use the HTML tour below.'}
+          : 'If the preview does not load, the static HTML tour below still shows key tabs.'}
       </p>
     </div>
   );

@@ -77,7 +77,7 @@ function SiteCard({ site, onCardHoverStart, onCardHoverEnd, onCardActivate }: Si
         touchStartRef.current = { x: touch.clientX, y: touch.clientY };
       }}
       onTouchEnd={handleTouchEnd}
-      className="group relative flex-shrink-0 snap-center w-[60vw] sm:w-[300px] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:ring-offset-2 focus-visible:ring-offset-gray-700 rounded-lg"
+      className="group relative flex-shrink-0 snap-center w-[60vw] sm:w-[300px] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-lg"
       aria-label={`Visit ${site.name} at ${site.domain}`}
     >
       <div className="flex flex-col items-center gap-3 px-1 py-2 transition duration-300 group-hover:scale-[1.02]">
@@ -126,7 +126,6 @@ export default function WebOpsSiteSlider({ sites }: WebOpsSiteSliderProps) {
   const measureSetWidth = useCallback(() => {
     const track = trackRef.current;
     if (!track || sites.length === 0) return 0;
-
     const width = track.scrollWidth / LOOP_COPIES;
     setWidthRef.current = width;
     return width;
@@ -245,19 +244,43 @@ export default function WebOpsSiteSlider({ sites }: WebOpsSiteSliderProps) {
 
     const observer = new ResizeObserver(() => {
       measureSetWidth();
-      normalizeScroll();
+      if (track.scrollLeft < setWidthRef.current * 0.5) {
+        scrollToMiddle();
+      } else {
+        normalizeScroll();
+      }
     });
 
     observer.observe(track);
     track.addEventListener('scroll', onScroll, { passive: true });
     track.addEventListener('scrollend', onScrollEnd);
 
+    const images = track.querySelectorAll('img');
+    const onImageReady = () => {
+      measureSetWidth();
+      if (track.scrollLeft < setWidthRef.current * 0.5) {
+        scrollToMiddle();
+      } else {
+        normalizeScroll();
+      }
+    };
+    images.forEach((img) => {
+      if (!img.complete) {
+        img.addEventListener('load', onImageReady, { once: true });
+        img.addEventListener('error', onImageReady, { once: true });
+      }
+    });
+
     return () => {
       observer.disconnect();
       track.removeEventListener('scroll', onScroll);
       track.removeEventListener('scrollend', onScrollEnd);
+      images.forEach((img) => {
+        img.removeEventListener('load', onImageReady);
+        img.removeEventListener('error', onImageReady);
+      });
     };
-  }, [loopedItems.length, measureSetWidth, normalizeScroll, scrollToMiddle, setScrollSnapEnabled]);
+  }, [loopedItems.length, measureSetWidth, normalizeScroll, scrollToMiddle, setScrollSnapEnabled, sites.length]);
 
   useEffect(() => {
     const track = trackRef.current;
@@ -269,7 +292,15 @@ export default function WebOpsSiteSlider({ sites }: WebOpsSiteSliderProps) {
     setScrollSnapEnabled(false);
 
     const tick = (time: number) => {
-      if (shouldAutoScroll() && !isAdjustingRef.current) {
+      if (setWidthRef.current <= 0) {
+        measureSetWidth();
+        if (setWidthRef.current > 0 && track.scrollLeft < setWidthRef.current * 0.5) {
+          scrollToMiddle();
+        }
+      }
+
+      const canMove = shouldAutoScroll() && !isAdjustingRef.current && setWidthRef.current > 0;
+      if (canMove) {
         setScrollSnapEnabled(false);
         const last = lastFrameTimeRef.current ?? time;
         lastFrameTimeRef.current = time;
@@ -300,9 +331,11 @@ export default function WebOpsSiteSlider({ sites }: WebOpsSiteSliderProps) {
       document.removeEventListener('visibilitychange', onVisibilityChange);
     };
   }, [
+    measureSetWidth,
     normalizeScroll,
     pauseAutoScroll,
     resumeAutoScroll,
+    scrollToMiddle,
     setScrollSnapEnabled,
     shouldAutoScroll,
   ]);
@@ -356,7 +389,7 @@ export default function WebOpsSiteSlider({ sites }: WebOpsSiteSliderProps) {
 
   return (
     <div className="relative group/slider">
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 flex w-12 items-center justify-start bg-gradient-to-r from-gray-700/90 to-transparent sm:w-16">
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 flex w-12 items-center justify-start bg-gradient-to-r from-primary-black/90 to-transparent sm:w-16">
         <button
           type="button"
           onClick={() => scroll('left')}
@@ -367,7 +400,7 @@ export default function WebOpsSiteSlider({ sites }: WebOpsSiteSliderProps) {
         </button>
       </div>
 
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 flex w-12 items-center justify-end bg-gradient-to-l from-gray-700/90 to-transparent sm:w-16">
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 flex w-12 items-center justify-end bg-gradient-to-l from-primary-black/90 to-transparent sm:w-16">
         <button
           type="button"
           onClick={() => scroll('right')}

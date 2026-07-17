@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RevOps | Pipeline &amp; Forecasting | MHG Strategy</title>
+<style>
+  :root{
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f8fafc;
+    --card:#ffffff; --accent:#2563eb; --accent-bg:#eff6ff;
+    --ok:#0f6e56; --ok-bg:#e1f5ee; --warn:#854f0b; --warn-bg:#faeeda;
+    --red:#a32d2d; --red-bg:#fcebeb; --radius:14px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--ink); background:var(--bg); line-height:1.55; -webkit-font-smoothing:antialiased}
+  .wrap{max-width:900px; margin:0 auto; padding:56px 24px 72px}
+  .eyebrow{text-align:center; letter-spacing:.14em; font-size:13px; font-weight:600; color:var(--accent); text-transform:uppercase; margin:0 0 14px}
+  h1{text-align:center; font-size:clamp(30px,5vw,48px); font-weight:800; letter-spacing:-.02em; margin:0 0 20px}
+  .lede{text-align:center; font-size:18px; color:#334155; max-width:680px; margin:0 auto 12px}
+  .disclaimer{text-align:center; font-size:14px; color:var(--muted); max-width:620px; margin:0 auto 40px}
+
+  .cards{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:26px}
+  .metric{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 18px}
+  .metric .lbl{font-size:12px; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:.04em; margin-bottom:8px}
+  .metric .val{font-size:26px; font-weight:800; letter-spacing:-.02em}
+  .metric .sub{font-size:12.5px; color:var(--muted); margin-top:3px}
+  .metric .sub.ok{color:var(--ok)} .metric .sub.warn{color:var(--warn)} .metric .sub.red{color:var(--red)}
+
+  .panel{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:26px; margin-bottom:22px}
+  .panel-title{font-size:15px; font-weight:700; margin:0 0 4px}
+  .panel-sub{font-size:13.5px; color:var(--muted); margin:0 0 20px}
+
+  .stage-row{display:grid; grid-template-columns:130px 1fr 90px 70px; gap:14px; align-items:center; padding:11px 0; border-bottom:1px solid var(--line); font-size:14px}
+  .stage-row:last-child{border-bottom:none}
+  .stage-row.head{font-size:11.5px; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; border-bottom:1px solid var(--line)}
+  .stage-name{font-weight:600}
+  .bar{height:22px; background:var(--accent-bg); border-radius:6px; position:relative; overflow:hidden}
+  .bar > span{position:absolute; left:0; top:0; bottom:0; background:var(--accent); border-radius:6px; transition:width .5s cubic-bezier(.4,0,.2,1)}
+  .num{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13.5px; text-align:right}
+  .prob{color:var(--muted); text-align:right; font-size:13px}
+
+  .controls{display:grid; grid-template-columns:1fr 1fr; gap:22px}
+  .ctl label{display:flex; justify-content:space-between; font-size:13px; font-weight:600; margin-bottom:8px}
+  .ctl label .out{color:var(--accent); font-family:ui-monospace,monospace}
+  input[type=range]{width:100%; accent-color:var(--accent)}
+
+  .forecast{display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-top:4px}
+  .fc{background:var(--bg); border:1px solid var(--line); border-radius:12px; padding:16px 18px; text-align:center}
+  .fc .lbl{font-size:12px; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:.04em}
+  .fc .val{font-size:24px; font-weight:800; margin-top:6px; letter-spacing:-.02em}
+  .pill{display:inline-block; padding:3px 11px; border-radius:999px; font-size:12px; font-weight:700; margin-top:8px}
+  .pill.ok{background:var(--ok-bg); color:var(--ok)}
+  .pill.warn{background:var(--warn-bg); color:var(--warn)}
+  .pill.red{background:var(--red-bg); color:var(--red)}
+  .foot{text-align:center; margin-top:30px; font-size:13px; color:var(--muted)}
+  body.embed{background:#fff}
+  body.embed .page-chrome{display:none}
+  body.embed .wrap{padding:28px 24px 36px}
+  body.embed .foot{display:none}
+  @media(max-width:640px){.cards{grid-template-columns:repeat(2,1fr)} .controls{grid-template-columns:1fr} .forecast{grid-template-columns:1fr}
+    .stage-row{grid-template-columns:100px 1fr 74px; } .prob{display:none} .stage-row .prob{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="page-chrome">
+    <p class="eyebrow">RevOps</p>
+    <h1>Pipeline &amp; forecasting</h1>
+    <p class="lede">A weighted pipeline model that turns stage-by-stage deal data into a defensible forecast — and shows the gap to quota before the quarter closes.</p>
+    <p class="disclaimer">Sample fictitious data for portfolio demonstration. Adjust the assumptions below to see the forecast recompute in real time.</p>
+  </div>
+
+  <div class="cards">
+    <div class="metric"><div class="lbl">Open pipeline</div><div class="val" id="m-open">$0</div><div class="sub" id="m-open-sub">across all stages</div></div>
+    <div class="metric"><div class="lbl">Weighted forecast</div><div class="val" id="m-fc">$0</div><div class="sub" id="m-fc-sub">probability-adjusted</div></div>
+    <div class="metric"><div class="lbl">Quota</div><div class="val" id="m-quota">$450K</div><div class="sub">this quarter</div></div>
+    <div class="metric"><div class="lbl">Coverage</div><div class="val" id="m-cov">0×</div><div class="sub" id="m-cov-sub">pipeline / quota</div></div>
+  </div>
+
+  <div class="panel">
+    <p class="panel-title">Weighted pipeline by stage</p>
+    <p class="panel-sub">Each stage's open value, discounted by its historical win probability.</p>
+    <div class="stage-row head">
+      <div>Stage</div><div>Weighted value</div><div class="num">Open $</div><div class="prob">Win %</div>
+    </div>
+    <div id="stage-rows"></div>
+  </div>
+
+  <div class="panel">
+    <p class="panel-title">Forecast assumptions</p>
+    <p class="panel-sub">Adjust the two levers that move most forecasts and watch the projection respond.</p>
+    <div class="controls">
+      <div class="ctl">
+        <label>Late-stage close rate <span class="out" id="close-out">70%</span></label>
+        <input type="range" id="close" min="40" max="95" step="5" value="70">
+      </div>
+      <div class="ctl">
+        <label>Slip risk (deals pushing out) <span class="out" id="slip-out">15%</span></label>
+        <input type="range" id="slip" min="0" max="40" step="5" value="15">
+      </div>
+    </div>
+    <div class="forecast">
+      <div class="fc"><div class="lbl">Commit</div><div class="val" id="f-commit">$0</div></div>
+      <div class="fc"><div class="lbl">Best case</div><div class="val" id="f-best">$0</div></div>
+      <div class="fc"><div class="lbl">Gap to quota</div><div class="val" id="f-gap">$0</div><span class="pill" id="f-pill">—</span></div>
+    </div>
+  </div>
+
+  <p class="foot">Representative model · stage probabilities and quota are illustrative sample data</p>
+</div>
+
+<script>
+if (new URLSearchParams(location.search).get('embed') === '1') {
+  document.body.classList.add('embed');
+}
+
+const QUOTA = 450000;
+const STAGES = [
+  {name:"Discovery",   open:320000, p:0.15},
+  {name:"Qualified",   open:280000, p:0.30},
+  {name:"Proposal",    open:240000, p:0.55},
+  {name:"Negotiation", open:190000, p:0.75},
+  {name:"Verbal yes",  open:120000, p:0.90}
+];
+const fmt = n => '$' + Math.round(n/1000) + 'K';
+const rowsEl = document.getElementById('stage-rows');
+const closeEl = document.getElementById('close');
+const slipEl = document.getElementById('slip');
+
+function compute(){
+  const closeAdj = closeEl.value/70;      // relative to baseline 70%
+  const slip = slipEl.value/100;
+  let open=0, weighted=0, lateOpen=0;
+  STAGES.forEach(s=>{
+    open += s.open;
+    // late-stage deals (p>=.5) flex with the close-rate lever
+    const eff = s.p >= 0.5 ? Math.min(0.98, s.p*closeAdj) : s.p;
+    s._w = s.open*eff;
+    weighted += s._w;
+    if(s.p>=0.5) lateOpen += s.open;
+  });
+  const afterSlip = weighted*(1-slip);
+  const commit = STAGES.filter(s=>s.p>=0.75).reduce((a,s)=>a+s._w,0)*(1-slip);
+  const best = weighted;
+  const gap = QUOTA - afterSlip;
+  return {open, weighted:afterSlip, commit, best, gap};
+}
+
+function render(){
+  const r = compute();
+  document.getElementById('close-out').textContent = closeEl.value + '%';
+  document.getElementById('slip-out').textContent = slipEl.value + '%';
+  document.getElementById('m-open').textContent = fmt(r.open);
+  document.getElementById('m-fc').textContent = fmt(r.weighted);
+  const cov = (r.open/QUOTA);
+  const covEl = document.getElementById('m-cov');
+  covEl.textContent = cov.toFixed(1)+'×';
+  const covSub = document.getElementById('m-cov-sub');
+  covSub.className = 'sub ' + (cov>=3?'ok':cov>=2?'warn':'red');
+  covSub.textContent = cov>=3?'healthy (3×+)':cov>=2?'thin':'below 2× — risk';
+
+  const fcSub = document.getElementById('m-fc-sub');
+  fcSub.className = 'sub ' + (r.weighted>=QUOTA?'ok':'warn');
+  fcSub.textContent = r.weighted>=QUOTA ? 'above quota' : fmt(QUOTA-r.weighted)+' short';
+
+  rowsEl.innerHTML = STAGES.map(s=>{
+    const w = Math.round(s._w);
+    const pct = Math.min(100, (s._w/320000)*100);
+    return `<div class="stage-row">
+      <div class="stage-name">${s.name}</div>
+      <div class="bar"><span style="width:${pct}%"></span></div>
+      <div class="num">${fmt(s.open)}</div>
+      <div class="prob">${Math.round(s.p*100)}%</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('f-commit').textContent = fmt(r.commit);
+  document.getElementById('f-best').textContent = fmt(r.best);
+  const gapEl = document.getElementById('f-gap');
+  const pill = document.getElementById('f-pill');
+  if(r.gap<=0){
+    gapEl.textContent = '+'+fmt(-r.gap);
+    pill.className='pill ok'; pill.textContent='On track';
+  } else {
+    gapEl.textContent = '−'+fmt(r.gap);
+    const ratio = r.gap/QUOTA;
+    pill.className='pill ' + (ratio<0.1?'warn':'red');
+    pill.textContent = ratio<0.1?'Close':'At risk';
+  }
+}
+
+closeEl.addEventListener('input', render);
+slipEl.addEventListener('input', render);
+render();
+</script>
+</body>
+</html>

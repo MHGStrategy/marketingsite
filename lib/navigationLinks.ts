@@ -2,6 +2,7 @@ export const solutionLinks = [
   { href: '/solutions', label: 'All Solutions' },
   { href: '/webops', label: 'WebOps' },
   { href: '/revops', label: 'RevOps' },
+  { href: '/portfolio', label: 'Portfolio' },
 ] as const;
 
 export const aboutLinks = [

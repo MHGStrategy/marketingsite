@@ -77,7 +77,7 @@ export default function Navigation() {
                     <Link
                       key={link.href}
                       href={link.href}
-                      className="block px-4 py-2 text-gray-400 hover:bg-gray-900 hover:text-primary-blue transition-colors text-sm"
+                      className="block px-4 py-2 text-white hover:bg-gray-900 hover:text-primary-blue transition-colors text-sm"
                     >
                       {link.label}
                     </Link>
@@ -174,7 +174,7 @@ export default function Navigation() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`block ${linkStyles} text-sm text-gray-400`}
+                    className={`block ${linkStyles} text-sm`}
                     onClick={closeMobileMenu}
                   >
                     {link.label}
