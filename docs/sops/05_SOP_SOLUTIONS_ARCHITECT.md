@@ -56,7 +56,7 @@ The Solutions Architect is the bridge between "what we sold" and "what we build.
 |--------|-----|
 | MHGSYNC discovery dashboard | Scope draft → architecture inputs |
 | Architecture/spec docs (Workspace) | Build specs, runbooks, diagrams |
-| Target platforms | TwentyCRM, Cal.com, Google/Meet, integrations, Bluehost/hosting |
+| Target platforms | MHGSYNC, Cal.com, Google/Meet, integrations, Bluehost/hosting |
 | MHGSYNC / site codebase | Platform constraints (with Developer) |
 
 ---

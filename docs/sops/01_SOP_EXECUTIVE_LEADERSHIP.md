@@ -59,8 +59,8 @@ A = Accountable, R = Responsible, C = Consulted.
 |--------|-----|
 | Novo | Operating account, cash position |
 | Stripe (via Finance) | Revenue visibility |
-| MHGSYNC | Pipeline, delivery, and health dashboards |
-| CRM (Sheets → TwentyCRM) | Pipeline review |
+| MHGSYNC | CRM, pipeline, delivery, and health dashboards |
+| Web_Leads spreadsheet | Assessment capture + SDR ops mirror (see [lead pipeline](../processes/LEAD_PIPELINE.md)) |
 | Google Workspace | Strategy docs, agreements repository |
 
 ---

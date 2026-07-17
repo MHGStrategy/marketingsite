@@ -53,7 +53,8 @@ The Account Manager owns the client after go-live: keeping them healthy, retaine
 | System | Use |
 |--------|-----|
 | MHGSYNC PM / health module | Account health, change requests, QBR tracking |
-| CRM (Sheets → TwentyCRM) | Account records, renewal dates, expansion pipeline |
+| MHGSYNC (CRM) | Account records, renewal dates, expansion pipeline |
+| Web_Leads spreadsheet | SDR-visible lead history where needed |
 | Stripe (via Finance) | Recurring-billing status visibility |
 | Email / Cal.com | Client comms, QBR scheduling |
 
@@ -144,7 +145,7 @@ Churn risk or downgrade → Exec early (L3). Delivery disputes on change request
 |-----------|--------|
 | First case studies (relieves no-proof constraint) | Pending first results |
 | MHGSYNC health/PM module | In build (Developer) |
-| Renewal-tracking in TwentyCRM | Pending migration ([migration plan](../processes/TWENTYCRM_MIGRATION.md)) |
+| Renewal-tracking in MHGSYNC | To build (with PM/health module) |
 | Managed Ops expansion playbook | To formalize |
 
 **Contact:** hello@mhgstrategy.com · (925) 290-8604

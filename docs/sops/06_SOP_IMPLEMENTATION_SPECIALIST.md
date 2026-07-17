@@ -26,8 +26,8 @@ The Implementation Specialist executes delivery through **configuration, not cod
 **Seam vs. Developer:** if it's done in a platform's UI/settings or low-code config, it's Implementation. If it requires writing/maintaining custom software, it's Developer. When config hits a wall, escalate to Developer rather than improvising code.
 
 ### Owns
-- TwentyCRM setup and configuration; Cal.com event types (WebOps Strategy Call, RevOps Review — 30 min, Google Calendar + Meet)
-- Integration configuration, data migration (e.g., Google Sheets → TwentyCRM)
+- Cal.com event types (WebOps Strategy Call, RevOps Review — 30 min, Google Calendar + Meet)
+- Integration configuration and automation/workflow config in MHGSYNC and connected platforms
 - Automation/workflow config and confirmation-email sequence setup
 - Client onboarding, access provisioning guidance (Bluehost admin guide handoff), and go-live
 - Handoff of the live, configured client to the Account Manager
@@ -53,10 +53,9 @@ The Implementation Specialist executes delivery through **configuration, not cod
 
 | System | Use |
 |--------|-----|
-| TwentyCRM | Stand up and configure (replaces Sheets) |
+| MHGSYNC | CRM — discovery dashboard, scope, onboarding tracking |
+| Google Apps Script / Sheets | Assessment lead capture; SDR ops mirror ([architecture](../processes/LEAD_PIPELINE.md)) |
 | Cal.com | Event types + Google Calendar/Meet integration |
-| MHGSYNC | Discovery dashboard, scope, onboarding tracking |
-| Google Apps Script / Sheets | Current lead/automation config during migration |
 | Bluehost / hosting | Client access provisioning + admin guide |
 | Confirmation-email sequences | WebOps and RevOps tracks (segmented) |
 
@@ -143,9 +142,8 @@ Config can't meet spec → Developer. Spec ambiguous/infeasible → Solutions Ar
 
 | Open item | Status |
 |-----------|--------|
-| TwentyCRM migration from Sheets | In progress — Sheets operational until cutover ([migration plan](../processes/TWENTYCRM_MIGRATION.md)) |
 | Cal.com event types (WebOps Strategy Call, RevOps Review) | To create (30 min + Meet) |
-| GoDaddy/Bluehost admin guide (onboarding) | Bluehost live; GoDaddy TBD |
+| Bluehost admin guide (onboarding) | Live at [mhgstrategy.com/webops/bluehost](https://mhgstrategy.com/webops/bluehost/) |
 | Onboarding checklist in MHGSYNC | To build |
 
 **Contact:** hello@mhgstrategy.com · (925) 290-8604

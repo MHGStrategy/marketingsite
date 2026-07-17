@@ -83,7 +83,7 @@ export function WebOpsAssessmentForm({ variant = 'dark' }: WebOpsAssessmentFormP
     setStatus('loading');
 
     try {
-      // TwentyCRM dual-write planned — see docs/processes/TWENTYCRM_MIGRATION.md
+      // Assessment capture → Apps Script → Sheets; see docs/processes/LEAD_PIPELINE.md
       const trimmedName = fullName.trim();
       const trimmedWebsite = websiteUrl.trim();
       const intakePath = getIntakeHref(industry);
@@ -349,7 +349,7 @@ export function VerticalLeadForm({ config }: VerticalLeadFormProps) {
     setStatus('loading');
 
     try {
-      // TwentyCRM dual-write planned — see docs/processes/TWENTYCRM_MIGRATION.md
+      // Assessment capture → Apps Script → Sheets; see docs/processes/LEAD_PIPELINE.md
       const trimmedName = fullName.trim();
       const trimmedEmail = workEmail.trim();
       const trimmedPhone = phone.trim();

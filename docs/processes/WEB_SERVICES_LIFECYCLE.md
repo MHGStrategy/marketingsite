@@ -259,8 +259,7 @@ Work performed after payment is received. Phase B loops through planning, buildi
 - Analytics, search console, ad accounts
 - For data/analytics projects: Salesforce, ERP, accounting systems (via secure credentials per NDA terms)
 
-> **Bluehost:** Live at [mhgstrategy.com/webops/bluehost](https://mhgstrategy.com/webops/bluehost/) — Shaun receives an email invitation to accept admin access.  
-> **GoDaddy:** Planned — will mirror the Bluehost guide pattern; blocked on screenshot capture from registrar walkthrough.
+> **Bluehost:** Live at [mhgstrategy.com/webops/bluehost](https://mhgstrategy.com/webops/bluehost/) — Shaun receives an email invitation to accept admin access.
 
 ---
 
@@ -368,7 +367,6 @@ Maintenance expectations are captured during intake (monthly retainer vs. client
 Priority order:
 
 1. [x] **Invoicing tool, template, deposit amount, and payment terms (A3.5)** — Canonical policy in [Finance SOP §5](../sops/08_SOP_FINANCE.md); exec sign-off pending on PROPOSED dunning/small-project items
-2. [ ] GoDaddy and other host admin access guides (B1)
-3. [ ] Standard definition of a build "phase" (B3)
-4. [ ] MHGSYNC discovery dashboard workflow documentation
-5. [ ] Maintenance retainer scope, SLA, and billing (C)
+2. [ ] Standard definition of a build "phase" (B3)
+3. [ ] MHGSYNC discovery dashboard workflow documentation
+4. [ ] Maintenance retainer scope, SLA, and billing (C)

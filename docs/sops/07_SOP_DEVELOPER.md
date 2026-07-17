@@ -29,7 +29,7 @@ The Developer builds and maintains the software the entire firm runs on: client-
 - Public site (Next.js 14 App Router, static export, Tailwind) — pages, forms, conversion router
 - MHGSYNC backoffice: CRM, PM module, discovery dashboard, intake API (`/api/intake`)
 - Apps Script leads endpoint and email automation plumbing
-- Custom integrations requiring code; TwentyCRM API migration work
+- Custom integrations requiring code; MHGSYNC API and leads-endpoint maintenance
 - Internal tooling reliability, security, deploys, and the codebase TODO backlog
 
 ### Does not own
@@ -57,8 +57,7 @@ The Developer builds and maintains the software the entire firm runs on: client-
 | GitHub | Source control |
 | Next.js 14 / Tailwind | Site stack; palette: #239bf6, #000, #FFF, #FFD700, gray scale |
 | MHGSYNC codebase | CRM, PM, intake API |
-| Google Apps Script | Leads endpoint, email automation |
-| TwentyCRM API | Migration target |
+| Google Apps Script | Leads endpoint (assessment capture), email automation |
 | Shared hosting (static export) | Deploy target |
 
 ---
@@ -71,8 +70,8 @@ The Developer builds and maintains the software the entire firm runs on: client-
 3. Test, deploy, and hand configurable surfaces to Implementation Specialist.
 
 ### 5.2 Internal tooling (CRM + PM build)
-- Prioritized by Exec. Current thrust: **TwentyCRM migration** (replace Sheets capture) and the **MHGSYNC PM module** that SA/IS/AM will run delivery through.
-- Honor codebase TODOs (`TODO:TWENTYCRM` on lead forms) as the migration checklist.
+- Prioritized by Exec. Current thrust: **MHGSYNC PM module** and CRM enhancements that SA/IS/AM run delivery through.
+- Lead architecture: assessment forms → Sheets ([LEAD_PIPELINE.md](../processes/LEAD_PIPELINE.md)); intake → MHGSYNC `/api/intake`.
 
 ### 5.3 Site/conversion changes (Marketing-driven)
 1. Marketing files copy/structure change requests (e.g., RevOps "fractional" landing page, two-card router, conversion-gap fixes).
@@ -111,7 +110,7 @@ The Developer builds and maintains the software the entire firm runs on: client-
 | Lead-pipeline email failure rate | < 1% |
 | Spec → shipped cycle time (small change) | ≤ 3 business days |
 | Production defects per release | Trend to 0 |
-| TwentyCRM migration milestones hit | On roadmap |
+| MHGSYNC CRM/PM feature delivery | On roadmap |
 
 ---
 
@@ -144,11 +143,10 @@ Architecture conflict → Solutions Architect. Priority conflict across requests
 
 | Open item | Status |
 |-----------|--------|
-| TwentyCRM migration (`TODO:TWENTYCRM`) | In progress — Sheets operational until cutover ([migration plan](../processes/TWENTYCRM_MIGRATION.md)) |
 | MHGSYNC PM module | In build |
+| Lead pipeline reference | [LEAD_PIPELINE.md](../processes/LEAD_PIPELINE.md) |
 | Conversion router + RevOps "fractional" page | Pending Marketing spec |
 | Invoicing/Stripe integration surface for Finance | To scope — requirements doc needed; canonical billing policy in Finance §5 |
-| GoDaddy admin guide assets | Planned — mirrors Bluehost guide; blocked on screenshot capture |
 
 **Contact:** hello@mhgstrategy.com · (925) 290-8604
 

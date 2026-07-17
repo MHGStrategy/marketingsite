@@ -53,7 +53,8 @@ SDR is the firm's first human touch: it works outbound lists and inbound forms, 
 
 | System | Use |
 |--------|-----|
-| CRM (Sheets → TwentyCRM) | Lead capture, disposition, handoff |
+| MHGSYNC | Intake CRM — dashboards, scope, pipeline (system of record) |
+| Web_Leads spreadsheet | Assessment capture + SDR disposition ([architecture](../processes/LEAD_PIPELINE.md)) |
 | Apps Script leads endpoint | Inbound form → sheet row + notifications (`hello@mhgstrategy.com`) |
 | Cal.com | `webops-discovery`, `revops-review` booking |
 | Email | Outbound + confirmation follow-up |
@@ -166,7 +167,7 @@ Offer codes expire **90 days** from issuance; rows logged on the `Offers` tab.
 
 ### 5.7 CRM hygiene & schema
 
-One spreadsheet, one tab per source (until TwentyCRM migration). Monitor `hello@mhgstrategy.com` and the sheet daily. Columns to track per lead:
+One spreadsheet, one tab per source — assessment tabs plus intake mirror tabs (`webops_intake`, `revops_intake`). MHGSYNC owns completed intakes; the sheet is the SDR ops layer. Monitor `hello@mhgstrategy.com` and the sheet daily. Columns to track per lead:
 
 Lead date · Source/form · Company + contact · Vertical (WebOps industry or RevOps) · Intake completed (Y/N) · Call booked (Y/N) · Scope reviewed (Y/N) · Agreement status · Invoice/payment status · Owner.
 
@@ -231,8 +232,8 @@ Ambiguous fit → consult SC before routing. Volume spikes beyond SLA capacity �
 
 | Open item | Status |
 |-----------|--------|
-| TwentyCRM migration (replaces Sheets capture) | In progress — Sheets operational until cutover ([migration plan](../processes/TWENTYCRM_MIGRATION.md)) |
-| Formal handoff checklist in CRM | To build into TwentyCRM |
+| Formal handoff checklist in MHGSYNC | To build |
+| Lead pipeline reference | [LEAD_PIPELINE.md](../processes/LEAD_PIPELINE.md) |
 | Top-of-funnel operational reference (ex-Sales SOP) | **Folded into §5.4–5.7** |
 
 **Contact:** hello@mhgstrategy.com · (925) 290-8604

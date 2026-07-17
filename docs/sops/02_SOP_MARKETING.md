@@ -53,7 +53,8 @@ Marketing creates qualified demand and protects the brand's credibility while do
 |--------|-----|
 | mhgstrategy.com (Next.js) | Landing pages, blog, offers funnel |
 | Developer / Cursor | Build requests for page changes |
-| CRM (Sheets → TwentyCRM) | Campaign-to-lead attribution |
+| Web_Leads spreadsheet | Campaign-to-lead attribution (assessment tabs) |
+| MHGSYNC | Intake-attributed pipeline (with SC) |
 | Apps Script leads endpoint | Form-driven campaign capture |
 | Analytics (site) | Conversion measurement |
 

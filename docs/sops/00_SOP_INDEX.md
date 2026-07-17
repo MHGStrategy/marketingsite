@@ -102,8 +102,8 @@ All pricing is canonical in **Finance §5.2**. Summary — **WebOps ladder:** GT
 | System | URL / location | Owning function | Primary users |
 |--------|----------------|-----------------|---------------|
 | Public site | mhgstrategy.com | Developer (build) / Marketing (content) | All |
-| MHGSYNC backoffice | mhgsync.com | Developer | SC, SA, IS, AM |
-| CRM | Google Sheets → TwentyCRM (in progress — Sheets operational until cutover) | Developer (build) / SDR + SC (data) | SDR, SC, AM |
+| MHGSYNC backoffice (CRM) | mhgsync.com | Developer | SC, SA, IS, AM |
+| Assessment leads (Sheets) | Apps Script → Web_Leads spreadsheet | Developer (endpoint) / SDR (hygiene) | SDR, SC |
 | Project management | MHGSYNC PM module (in build) | Developer | SA, IS, AM |
 | Leads endpoint | Apps Script web app | Developer | SDR |
 | Scheduling | Cal.com | SDR / SC | SDR, SC, AM |

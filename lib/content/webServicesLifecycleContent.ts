@@ -106,7 +106,6 @@ export const webServicesLifecycleContent = {
   ],
   openItems: [
     'Invoicing (A3.5) — canonical policy in Finance SOP §5; exec sign-off pending on PROPOSED items',
-    'GoDaddy admin guide (B1) — planned; mirrors Bluehost guide at /webops/bluehost/',
     'Standard definition of a build phase (B3)',
     'MHGSYNC discovery dashboard workflow documentation',
     'Maintenance retainer scope, SLA, and billing (C)',
@@ -244,7 +243,7 @@ export const phaseBSteps: ProcessStep[] = [
       'Salesforce/ERP/accounting for data projects (per NDA)',
       'Bluehost: mhgstrategy.com/webops/bluehost — Shaun accepts admin invite',
     ],
-    note: 'Bluehost guide live at /webops/bluehost/. GoDaddy guide planned — mirrors Bluehost pattern.',
+    note: 'Bluehost guide live at /webops/bluehost/. Other registrars — use client-specific access per B1 scope.',
   },
   {
     id: 'B2',
