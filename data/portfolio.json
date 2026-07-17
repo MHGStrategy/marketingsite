@@ -1,0 +1,47 @@
+[
+  {
+    "slug": "rollerlandct",
+    "name": "Roller Land",
+    "domain": "rollerlandct.com",
+    "url": "https://rollerlandct.com",
+    "category": "Recreation",
+    "screenshot": "/portfolio/rollerlandct.png",
+    "captured": "2026-06-25"
+  },
+  {
+    "slug": "ministryreligion",
+    "name": "Ministry Over Religion",
+    "domain": "ministryoverreligion.com",
+    "url": "https://ministryoverreligion.com",
+    "category": "Ministry",
+    "screenshot": "/portfolio/ministryreligion.png",
+    "captured": "2026-06-25"
+  },
+  {
+    "slug": "ubsuc",
+    "name": "United Black Student Unions of California",
+    "domain": "ubsuc.com",
+    "url": "https://ubsuc.com",
+    "category": "Student Org",
+    "screenshot": "/portfolio/ubsuc.png",
+    "captured": "2026-07-08"
+  },
+  {
+    "slug": "sankofamodesto",
+    "name": "Sankofa Modesto",
+    "domain": "sankofamodesto.com",
+    "url": "https://sankofamodesto.com",
+    "category": "Community",
+    "screenshot": "/portfolio/sankofamodesto.png",
+    "captured": "2026-06-25"
+  },
+  {
+    "slug": "marmarcandle",
+    "name": "Mar Mar Candle",
+    "domain": "marmarcandle.com",
+    "url": "https://marmarcandle.com",
+    "category": "Retail",
+    "screenshot": "/portfolio/marmarcandle.png",
+    "captured": "2026-06-26"
+  }
+]

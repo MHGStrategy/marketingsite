@@ -1,0 +1,377 @@
+import type { IntakeField as MinistryField, IntakeSection as MinistrySection } from './types';
+export type { FieldFlag, IntakeField as MinistryField, IntakeSection as MinistrySection } from './types';
+
+export const MINISTRY_SECTIONS: MinistrySection[] = [
+  {
+    id: 'about',
+    title: 'About You & Your Organization',
+    description:
+      "Let's start with some context about your ministry and who we're speaking with.",
+    fields: [
+      {
+        id: 'nameAndRole',
+        label: 'Your name and role',
+        type: 'text',
+        placeholder: 'e.g. Jane Doe, Executive Director',
+        required: true,
+      },
+      {
+        id: 'email',
+        label: 'Email address',
+        type: 'email',
+        placeholder: 'you@yourministry.org',
+        sub: 'We will email your personalized discovery dashboard to this address.',
+        required: true,
+      },
+      {
+        id: 'mission',
+        label: 'How would you describe your primary mission in your own words?',
+        type: 'textarea',
+        placeholder: 'What does success look like for the people you serve?',
+      },
+      {
+        id: 'primaryAudience',
+        label: 'Who is your primary audience today?',
+        type: 'checkbox',
+        sub: 'Check all that apply.',
+        options: [
+          { value: 'young-adults', label: 'Young adults (18–35) unchurched' },
+          { value: 'returning-believers', label: 'Returning believers' },
+          { value: 'women-community', label: 'Women seeking community' },
+          { value: 'hurt-by-religion', label: 'People hurt by religion' },
+          { value: 'existing-members', label: 'Existing members / regulars' },
+          { value: 'other', label: 'Other / everyone' },
+        ],
+      },
+      {
+        id: 'communitySize',
+        label: 'How large is your current active online community?',
+        type: 'radio',
+        options: [
+          { value: 'under-100', label: 'Under 100 members' },
+          { value: '100-500', label: '100 – 500 members' },
+          { value: '500-2000', label: '500 – 2,000 members' },
+          { value: '2000-plus', label: '2,000+ members' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'current-tech',
+    title: 'Current Website & Technology',
+    description: "Help us understand what's already in place and where the friction is.",
+    fields: [
+      {
+        id: 'platformMigration',
+        label: 'Are you open to migrating to a different platform?',
+        type: 'radio',
+        options: [
+          { value: 'yes-open', label: "Yes — we're open to whatever works best" },
+          { value: 'prefer-current', label: 'Prefer to stay on current platform if possible' },
+          { value: 'undecided', label: 'Undecided — depends on cost and capability' },
+          { value: 'no-migrate', label: 'No — current platform only' },
+        ],
+      },
+      {
+        id: 'notWorking',
+        label: 'What do you feel is NOT working on the current site?',
+        type: 'textarea',
+        sub: 'Be as specific as possible — this is a judgment-free zone.',
+        placeholder: "e.g. It looks outdated, hard to navigate on mobile, we can't update it easily...",
+      },
+      {
+        id: 'topTraffic',
+        label: 'Which pages or features get the most traffic or attention today?',
+        type: 'textarea',
+        placeholder: 'e.g. devotionals, events page, prayer requests...',
+      },
+      {
+        id: 'analytics',
+        label: 'Do you currently have Google Analytics or any analytics installed?',
+        type: 'radio',
+        options: [
+          { value: 'yes-regular', label: 'Yes, and we check it regularly' },
+          { value: 'yes-unused', label: "Yes, but we don't really use it" },
+          { value: 'no-analytics', label: 'No — we have no analytics' },
+          { value: 'not-sure', label: 'Not sure' },
+        ],
+      },
+      {
+        id: 'contentManagement',
+        label: 'How do you manage content updates today?',
+        type: 'textarea',
+        flag: 'pain',
+        placeholder: 'Who updates the site? How often? Is it easy?',
+      },
+    ],
+  },
+  {
+    id: 'redesign-goals',
+    title: 'Redesign Goals & Priorities',
+    description: "Tell us what changes you've already been thinking about before this conversation.",
+    fields: [
+      {
+        id: 'redesignReason',
+        label: "What is the #1 reason you're considering a redesign right now?",
+        type: 'textarea',
+        placeholder: "What was the moment or frustration that made you think 'we need to fix this'?",
+      },
+      {
+        id: 'consideredChanges',
+        label: 'Which of the following have you already considered as needed changes?',
+        type: 'checkbox',
+        flag: 'primary',
+        sub: 'Check all that you had in mind before today.',
+        options: [
+          { value: 'visual-design', label: 'New visual design / branding', sub: 'Colors, fonts, overall look' },
+          { value: 'mobile', label: 'Better mobile experience', sub: "Site doesn't work well on phones" },
+          { value: 'navigation', label: 'Improved navigation', sub: 'Hard to find things' },
+          { value: 'donations', label: 'Better donations experience', sub: 'Giving flow needs work' },
+          { value: 'events', label: 'Events / calendar upgrade', sub: 'Registration, reminders' },
+          { value: 'prayer', label: 'Prayer request system', sub: 'Submission and follow-up improvements' },
+          { value: 'devotionals', label: 'Devotional / blog upgrade', sub: 'Content experience' },
+          { value: 'speed', label: 'Faster loading speed', sub: 'Site feels slow' },
+        ],
+      },
+      {
+        id: 'designReference',
+        label: "Is there a specific website you've seen that you admire or want to model?",
+        type: 'text',
+        placeholder: 'Paste a URL or describe what you liked about it',
+      },
+      {
+        id: 'success12Months',
+        label: 'What does success look like 12 months after the redesign?',
+        type: 'textarea',
+        placeholder: 'More visitors? More attendance? More donations? More engagement?',
+      },
+    ],
+  },
+  {
+    id: 'community',
+    title: 'Community & Engagement Features',
+    description:
+      "Let's explore what would deepen connection and participation for your community members.",
+    fields: [
+      {
+        id: 'engagementChannels',
+        label: 'How do members currently engage outside of the website?',
+        type: 'checkbox',
+        sub: 'Check all active channels.',
+        options: [
+          { value: 'facebook', label: 'Facebook Group / Page' },
+          { value: 'instagram', label: 'Instagram' },
+          { value: 'email', label: 'Email newsletter' },
+          { value: 'zoom', label: 'Zoom (Bible study / events)' },
+          { value: 'youtube', label: 'YouTube / video content' },
+          { value: 'sms', label: 'Text / SMS broadcasts' },
+          { value: 'podcast', label: 'Podcast' },
+          { value: 'website-only', label: 'None — website only' },
+        ],
+      },
+      {
+        id: 'membersOnly',
+        label: 'Would you want a members-only area on the site?',
+        type: 'radio',
+        flag: 'upsell',
+        sub: 'Private devotionals, prayer threads, group resources, or member profiles.',
+        options: [
+          { value: 'yes', label: "Yes — this is something we've wanted" },
+          { value: 'maybe', label: 'Possibly — tell me more' },
+          { value: 'no', label: 'No — we want everything open to the public' },
+        ],
+      },
+      {
+        id: 'prayerRequests',
+        label: 'How are prayer requests currently submitted and fulfilled?',
+        type: 'textarea',
+        placeholder: "Is there a form? Who reads them? How do people know they've been prayed for?",
+      },
+      {
+        id: 'liveStreaming',
+        label: 'Is there interest in live streaming services, Bible studies, or events on the website?',
+        type: 'radio',
+        flag: 'upsell',
+        options: [
+          { value: 'yes', label: "Yes — we'd love that capability" },
+          { value: 'maybe', label: "Maybe — we'd need to understand the cost" },
+          { value: 'no', label: 'No — Zoom works fine for us' },
+        ],
+      },
+      {
+        id: 'devotionalComments',
+        label: 'Do you want members to be able to comment on or discuss devotionals?',
+        type: 'radio',
+        flag: 'upsell',
+        options: [
+          { value: 'yes', label: 'Yes — community discussion is important to us' },
+          { value: 'maybe', label: 'Maybe — concerned about moderation' },
+          { value: 'no', label: 'No — we prefer one-way publishing' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'content-media',
+    title: 'Content, Devotionals & Media',
+    description: "Let's explore how to scale your content strategy.",
+    fields: [
+      {
+        id: 'contentWorkflow',
+        label: 'How is content currently published? Who manages contributors?',
+        type: 'textarea',
+        placeholder: 'Is there a submission system? Editorial review? Publishing schedule?',
+      },
+      {
+        id: 'devotionalSearch',
+        label: 'Do you want readers to be able to search or filter past devotionals?',
+        type: 'radio',
+        flag: 'upsell',
+        options: [
+          { value: 'yes', label: 'Yes — readers ask about this' },
+          { value: 'nice', label: 'Would be nice, not urgent' },
+          { value: 'no', label: 'No — not needed' },
+        ],
+      },
+      {
+        id: 'mediaArchive',
+        label: 'Is there interest in a podcast, video sermon archive, or audio content section?',
+        type: 'radio',
+        flag: 'upsell',
+        options: [
+          { value: 'yes', label: 'Yes — we already produce this or want to' },
+          { value: 'future', label: 'Possibly in the future' },
+          { value: 'no', label: 'No plans for audio/video content' },
+        ],
+      },
+      {
+        id: 'emailNewsletter',
+        label: 'Do you publish or want to publish a regular email newsletter?',
+        type: 'radio',
+        flag: 'upsell',
+        options: [
+          { value: 'yes-integrated', label: 'Yes — and we want it better integrated with the site' },
+          { value: 'collect-only', label: "We collect emails but don't send regularly" },
+          { value: 'no', label: 'No email marketing at this time' },
+        ],
+      },
+      {
+        id: 'digitalResources',
+        label: 'Are there any digital resources you want to offer (e-books, study guides, downloads)?',
+        type: 'textarea',
+        flag: 'upsell',
+        placeholder: 'e.g. free Bible study guide PDF, devotional workbooks, printable prayer calendars...',
+      },
+    ],
+  },
+  {
+    id: 'giving',
+    title: 'Giving, Revenue & Sustainability',
+    description: 'Understanding your funding model helps us design the right giving experience.',
+    fields: [
+      {
+        id: 'donationMethods',
+        label: 'How do you currently accept donations?',
+        type: 'checkbox',
+        options: [
+          { value: 'platform-built-in', label: 'Platform payments / built-in' },
+          { value: 'paypal', label: 'PayPal' },
+          { value: 'cash-apps', label: 'CashApp / Venmo / Zelle' },
+          { value: 'givelify', label: 'Givelify or similar church platform' },
+          { value: 'stripe', label: 'Stripe' },
+          { value: 'none', label: "We don't actively fundraise" },
+        ],
+      },
+      {
+        id: 'recurringGiving',
+        label: 'Do you offer or want to offer recurring giving (monthly tithes/pledges)?',
+        type: 'radio',
+        flag: 'upsell',
+        options: [
+          { value: 'yes', label: 'Yes — already in place' },
+          { value: 'want', label: 'No, but we want to add this' },
+          { value: 'not-priority', label: 'Not a priority right now' },
+        ],
+      },
+      {
+        id: 'revenueStreams',
+        label: "Are there other revenue streams you're considering or want to explore?",
+        type: 'checkbox',
+        flag: 'upsell',
+        options: [
+          { value: 'merch', label: 'Merchandise / branded gear' },
+          { value: 'courses', label: 'Paid courses or studies' },
+          { value: 'events', label: 'Event tickets / registration fees' },
+          { value: 'premium', label: 'Premium membership tier' },
+          { value: 'sponsorships', label: 'Sponsorships / partnerships' },
+          { value: 'donations-only', label: 'None — donations only' },
+        ],
+      },
+      {
+        id: 'budget',
+        label: 'What is your approximate budget for this project?',
+        type: 'radio',
+        options: [
+          { value: 'under-2k', label: 'Under $2,000' },
+          { value: '2k-5k', label: '$2,000 – $5,000' },
+          { value: '5k-15k', label: '$5,000 – $15,000' },
+          { value: '15k-plus', label: '$15,000+' },
+          { value: 'flexible', label: 'Flexible — depends on scope' },
+          { value: 'not-sure', label: 'Not sure yet' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'timeline',
+    title: 'Timeline, Support & Final Thoughts',
+    description:
+      'Last few questions — help us understand urgency, ongoing needs, and anything we may have missed.',
+    fields: [
+      {
+        id: 'launchDate',
+        label: 'Is there a target launch date or milestone driving this project?',
+        type: 'text',
+        placeholder: 'e.g. before our anniversary in October, before a big event, ASAP...',
+      },
+      {
+        id: 'maintenance',
+        label: 'After launch, how do you envision handling ongoing updates and maintenance?',
+        type: 'radio',
+        options: [
+          { value: 'self-manage', label: 'We want to manage it ourselves' },
+          { value: 'retainer', label: "We'd like a monthly maintenance retainer" },
+          { value: 'on-call', label: 'On-call support as needed' },
+          { value: 'not-sure', label: 'Not sure yet' },
+        ],
+      },
+      {
+        id: 'brandIdentity',
+        label: 'Do you have an existing brand identity (logo, colors, fonts) to work with?',
+        type: 'radio',
+        options: [
+          { value: 'established', label: "Yes — brand is established, don't change it" },
+          { value: 'refresh', label: 'Yes, but open to a refresh' },
+          { value: 'need-help', label: 'No — we need full branding help' },
+        ],
+      },
+      {
+        id: 'seo',
+        label: 'Are you interested in improving how you show up in Google search results (SEO)?',
+        type: 'radio',
+        flag: 'upsell',
+        options: [
+          { value: 'yes', label: 'Yes — we want more organic traffic' },
+          { value: 'not-priority', label: 'Not a current priority' },
+          { value: 'not-sure', label: 'Not sure what that means for us' },
+        ],
+      },
+      {
+        id: 'additionalNotes',
+        label: 'Is there anything else you want us to know — pain points, dreams, concerns, or questions?',
+        type: 'textarea',
+        placeholder: 'Nothing is too small or too big. This is your space.',
+      },
+    ],
+  },
+];

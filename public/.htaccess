@@ -1,0 +1,7 @@
+# Apache headers for static export on shared hosting (ScalaHosting).
+# Next.js `headers()` in next.config.js does not apply to `output: export` builds.
+
+<IfModule mod_headers.c>
+  SetEnvIf Request_URI "^/portfolio" portfolio_embed_csp=1
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.office.com https://*.office.net https://*.microsoft.com https://*.live.com; style-src 'self' 'unsafe-inline' https://*.office.com https://*.office.net https://*.live.com; frame-src 'self' https://1drv.ms https://*.1drv.ms https://onedrive.live.com https://*.live.com https://*.office.com https://*.office.net https://*.officeapps.live.com https://*.sharepoint.com https://*.microsoft.com; img-src 'self' data: blob: https:; connect-src 'self' https://*.office.com https://*.office.net https://*.microsoft.com https://*.live.com; font-src 'self' data: https://*.office.com https://*.office.net https://*.live.com" env=portfolio_embed_csp
+</IfModule>

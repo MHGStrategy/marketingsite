@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-blue: #239bf6;
+  --primary-black: #000000;
+  --primary-white: #FFFFFF;
+  --yellowgold: #FFD700;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--primary-black);
+  background: var(--primary-white);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@keyframes rotate-6rpm {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-rotate-6rpm {
+  animation: rotate-6rpm 10s linear infinite;
+}
+
+.fpa-html-viewer .fpa-sheet-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.fpa-html-viewer .fpa-sheet-table caption {
+  caption-side: top;
+  text-align: left;
+  font-weight: 700;
+  padding-bottom: 0.75rem;
+  color: var(--primary-black);
+}
+
+.fpa-html-viewer .fpa-sheet-table td {
+  border: 1px solid #e5e7eb;
+  padding: 0.35rem 0.5rem;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.fpa-html-viewer .fpa-sheet-note {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}

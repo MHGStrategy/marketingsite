@@ -1,0 +1,148 @@
+{
+  "bucket": "mhgstrategy",
+  "region": "us-east-2",
+  "baseUrl": "https://mhgstrategy.s3.us-east-2.amazonaws.com",
+  "generatedAt": "2026-05-22T17:16:05.396Z",
+  "source": "codebase",
+  "assets": [
+    {
+      "key": "computer-dive.png",
+      "url": "https://mhgstrategy.s3.us-east-2.amazonaws.com/computer-dive.png",
+      "sizeBytes": null,
+      "lastModified": null,
+      "extension": ".png",
+      "type": "png",
+      "usedIn": [
+        "S3_MEDIA_ASSETS.md",
+        "app/app/webservices/page.tsx",
+        "app/webservices/page.tsx"
+      ]
+    },
+    {
+      "key": "datalines.png",
+      "url": "https://mhgstrategy.s3.us-east-2.amazonaws.com/datalines.png",
+      "sizeBytes": null,
+      "lastModified": null,
+      "extension": ".png",
+      "type": "png",
+      "usedIn": [
+        "S3_MEDIA_ASSETS.md",
+        "app/app/webservices/page.tsx",
+        "app/webservices/page.tsx"
+      ]
+    },
+    {
+      "key": "mhgmediagroupLOGO.png",
+      "url": "https://mhgstrategy.s3.us-east-2.amazonaws.com/mhgmediagroupLOGO.png",
+      "sizeBytes": null,
+      "lastModified": null,
+      "extension": ".png",
+      "type": "png",
+      "usedIn": [
+        "S3_MEDIA_ASSETS.md",
+        "app/app/mhgmedia/page.tsx",
+        "app/app/webservices/page.tsx",
+        "app/mhgmedia/page.tsx",
+        "app/webservices/offers/page.tsx",
+        "app/webservices/page.tsx"
+      ]
+    },
+    {
+      "key": "mhgstrategy_expect_more.png",
+      "url": "https://mhgstrategy.s3.us-east-2.amazonaws.com/mhgstrategy_expect_more.png",
+      "sizeBytes": null,
+      "lastModified": null,
+      "extension": ".png",
+      "type": "png",
+      "usedIn": [
+        "S3_MEDIA_ASSETS.md",
+        "app/app/page.tsx",
+        "app/page.tsx"
+      ]
+    },
+    {
+      "key": "mhgstrategy_revenue_ring.png",
+      "url": "https://mhgstrategy.s3.us-east-2.amazonaws.com/mhgstrategy_revenue_ring.png",
+      "sizeBytes": null,
+      "lastModified": null,
+      "extension": ".png",
+      "type": "png",
+      "usedIn": [
+        "S3_MEDIA_ASSETS.md",
+        "app/app/page.tsx",
+        "app/page.tsx"
+      ]
+    },
+    {
+      "key": "mhgstrategy_visualize_what_matters.png",
+      "url": "https://mhgstrategy.s3.us-east-2.amazonaws.com/mhgstrategy_visualize_what_matters.png",
+      "sizeBytes": null,
+      "lastModified": null,
+      "extension": ".png",
+      "type": "png",
+      "usedIn": [
+        "S3_MEDIA_ASSETS.md",
+        "app/app/page.tsx",
+        "app/page.tsx"
+      ]
+    },
+    {
+      "key": "mhgstrategy_win_more_clients.png",
+      "url": "https://mhgstrategy.s3.us-east-2.amazonaws.com/mhgstrategy_win_more_clients.png",
+      "sizeBytes": null,
+      "lastModified": null,
+      "extension": ".png",
+      "type": "png",
+      "usedIn": [
+        "S3_MEDIA_ASSETS.md",
+        "app/app/page.tsx",
+        "app/page.tsx"
+      ]
+    },
+    {
+      "key": "mhgstrategyhero.png",
+      "url": "https://mhgstrategy.s3.us-east-2.amazonaws.com/mhgstrategyhero.png",
+      "sizeBytes": null,
+      "lastModified": null,
+      "extension": ".png",
+      "type": "png",
+      "usedIn": [
+        "S3_MEDIA_ASSETS.md",
+        "app/app/mhgmedia/page.tsx",
+        "app/app/page.tsx",
+        "app/app/webservices/page.tsx",
+        "app/mhgmedia/page.tsx",
+        "app/page.tsx",
+        "app/webservices/claimoffer/ClaimOfferClient.tsx",
+        "app/webservices/offers/page.tsx",
+        "app/webservices/page.tsx"
+      ]
+    },
+    {
+      "key": "Painted-Earth.png",
+      "url": "https://mhgstrategy.s3.us-east-2.amazonaws.com/Painted-Earth.png",
+      "sizeBytes": null,
+      "lastModified": null,
+      "extension": ".png",
+      "type": "png",
+      "usedIn": [
+        "S3_MEDIA_ASSETS.md",
+        "app/app/webservices/page.tsx",
+        "app/webservices/page.tsx"
+      ]
+    },
+    {
+      "key": "poweredcity.png",
+      "url": "https://mhgstrategy.s3.us-east-2.amazonaws.com/poweredcity.png",
+      "sizeBytes": null,
+      "lastModified": null,
+      "extension": ".png",
+      "type": "png",
+      "usedIn": [
+        "S3_MEDIA_ASSETS.md",
+        "app/app/webservices/page.tsx",
+        "app/webservices/page.tsx"
+      ]
+    }
+  ]
+}
