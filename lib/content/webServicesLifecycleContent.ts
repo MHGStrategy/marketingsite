@@ -105,8 +105,8 @@ export const webServicesLifecycleContent = {
     },
   ],
   openItems: [
-    'Invoicing tool, template, deposit amount, and payment terms (A3.5) — HIGHEST PRIORITY',
-    'GoDaddy and other host admin access guides (B1)',
+    'Invoicing (A3.5) — canonical policy in Finance SOP §5; exec sign-off pending on PROPOSED items',
+    'GoDaddy admin guide (B1) — planned; mirrors Bluehost guide at /webops/bluehost/',
     'Standard definition of a build phase (B3)',
     'MHGSYNC discovery dashboard workflow documentation',
     'Maintenance retainer scope, SLA, and billing (C)',
@@ -201,7 +201,7 @@ export const phaseASteps: ProcessStep[] = [
       owner: 'Account lead / finance',
       exitCriteria: 'Invoice sent to client',
     },
-    note: 'TBD: invoicing tool, template, deposit, payment terms, unpaid follow-up cadence.',
+    note: 'Canonical policy in Finance SOP §5.1–5.4 (Stripe + Novo, 40/30/30 schedule, proposed dunning). Exec sign-off pending on PROPOSED items.',
   },
   {
     id: 'A4',
@@ -244,7 +244,7 @@ export const phaseBSteps: ProcessStep[] = [
       'Salesforce/ERP/accounting for data projects (per NDA)',
       'Bluehost: mhgstrategy.com/webops/bluehost — Shaun accepts admin invite',
     ],
-    note: 'TBD: GoDaddy and other host guides.',
+    note: 'Bluehost guide live at /webops/bluehost/. GoDaddy guide planned — mirrors Bluehost pattern.',
   },
   {
     id: 'B2',

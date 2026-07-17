@@ -168,6 +168,16 @@ Exec is the terminal L3 for the firm. Exceptions Exec cannot resolve internally 
 | Large-project milestone threshold | **Proposed (~$25k)** |
 | Role-split sequencing (which function hires first) | To plan |
 
+### Decision backlog (requires principal input)
+
+| Decision | Interim rule | Options to decide |
+|----------|--------------|-------------------|
+| Lifetime-MRR commission on termination | Do not pay past termination until resolved | Pay through term · prorate · cut off immediately |
+| WebOps Automation vs RevOps routing | Website-led → WebOps; revenue-system-led → RevOps | Formal rule + pricing boundary |
+| Dunning cadence | PROPOSED 0/+3/+7/+14/+21/+30 (Finance §5.4) | Approve as drafted or revise |
+| Small-project payment (≤$1,500) | PROPOSED paid in full upfront | Confirm or change threshold |
+| Bookkeeping tool | None — TBD | QuickBooks · Bench · other |
+
 **Contact:** hello@mhgstrategy.com · (925) 290-8604
 
 ---

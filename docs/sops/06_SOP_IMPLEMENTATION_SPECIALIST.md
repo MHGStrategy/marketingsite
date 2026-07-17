@@ -143,7 +143,7 @@ Config can't meet spec → Developer. Spec ambiguous/infeasible → Solutions Ar
 
 | Open item | Status |
 |-----------|--------|
-| TwentyCRM migration from Sheets | In setup |
+| TwentyCRM migration from Sheets | In progress — Sheets operational until cutover ([migration plan](../processes/TWENTYCRM_MIGRATION.md)) |
 | Cal.com event types (WebOps Strategy Call, RevOps Review) | To create (30 min + Meet) |
 | GoDaddy/Bluehost admin guide (onboarding) | Bluehost live; GoDaddy TBD |
 | Onboarding checklist in MHGSYNC | To build |

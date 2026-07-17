@@ -144,11 +144,11 @@ Architecture conflict → Solutions Architect. Priority conflict across requests
 
 | Open item | Status |
 |-----------|--------|
-| TwentyCRM migration (`TODO:TWENTYCRM`) | In progress |
+| TwentyCRM migration (`TODO:TWENTYCRM`) | In progress — Sheets operational until cutover ([migration plan](../processes/TWENTYCRM_MIGRATION.md)) |
 | MHGSYNC PM module | In build |
 | Conversion router + RevOps "fractional" page | Pending Marketing spec |
-| Invoicing/Stripe integration surface for Finance | To scope |
-| GoDaddy admin guide assets | TBD |
+| Invoicing/Stripe integration surface for Finance | To scope — requirements doc needed; canonical billing policy in Finance §5 |
+| GoDaddy admin guide assets | Planned — mirrors Bluehost guide; blocked on screenshot capture |
 
 **Contact:** hello@mhgstrategy.com · (925) 290-8604
 

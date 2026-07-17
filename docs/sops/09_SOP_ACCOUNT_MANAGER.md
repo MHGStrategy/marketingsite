@@ -144,7 +144,7 @@ Churn risk or downgrade → Exec early (L3). Delivery disputes on change request
 |-----------|--------|
 | First case studies (relieves no-proof constraint) | Pending first results |
 | MHGSYNC health/PM module | In build (Developer) |
-| Renewal-tracking in TwentyCRM | Pending migration |
+| Renewal-tracking in TwentyCRM | Pending migration ([migration plan](../processes/TWENTYCRM_MIGRATION.md)) |
 | Managed Ops expansion playbook | To formalize |
 
 **Contact:** hello@mhgstrategy.com · (925) 290-8604

@@ -52,7 +52,6 @@ const signupSteps: GuideStepContent[] = [
     title: 'Visit Bluehost',
     description:
       'Click the button below to open Bluehost. You\'ll land on a page showing the $1.99/mo plan — click Get Started to begin.',
-    // TODO: right-click the Step 1 screenshot on the Bluehost help article and paste the URL here
     imageSrc: '',
     link: { href: BLUEHOST_AFFILIATE_URL, label: 'BLUEHOST' },
   },

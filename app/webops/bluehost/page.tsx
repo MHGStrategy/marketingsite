@@ -9,6 +9,7 @@ import {
   BLUEHOST_AFFILIATE_URL,
   BLUEHOST_ACCOUNT_MANAGER_URL,
   BLUEHOST_PRICING_NOTE,
+  BLUEHOST_SIGNUP_HELP_URL,
   bluehostGuideSections,
   hostingIncludedFeatures,
   MHG_ADMIN_EMAIL,
@@ -31,6 +32,19 @@ function GuideSection({
             {section.title}
           </h2>
           <p className="text-gray-400 text-lg">{section.subtitle}</p>
+          {sectionKey === 'signup' && (
+            <p className="text-gray-500 text-sm mt-4">
+              Step-by-step screenshots:{' '}
+              <a
+                href={BLUEHOST_SIGNUP_HELP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-blue font-semibold hover:underline"
+              >
+                Bluehost signup help article
+              </a>
+            </p>
+          )}
         </div>
 
         <div className="space-y-5">

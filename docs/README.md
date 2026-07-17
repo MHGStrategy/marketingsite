@@ -30,6 +30,7 @@ Client-facing lifecycle detail and delivery-phase reference. Operational ownersh
 | Document | Status | Description |
 |----------|--------|-------------|
 | [Web Services Lifecycle](processes/WEB_SERVICES_LIFECYCLE.md) | Active (v2) | Delivery phases B–C and client-facing lifecycle — [public page](https://mhgstrategy.com/webops/lifecycle/) · [team page](https://mhgsync.com/sales/lifecycle/) |
+| [TwentyCRM Migration](processes/TWENTYCRM_MIGRATION.md) | Draft | Sheets → TwentyCRM field mapping and cutover plan |
 
 ## Operational runbooks
 

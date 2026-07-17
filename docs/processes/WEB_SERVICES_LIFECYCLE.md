@@ -200,7 +200,7 @@ All steps below happen before any build work begins. **Do not begin Phase B unti
 
 ### A3.5 — Send invoice
 
-> **Priority gap:** Invoicing is currently the #1 bottleneck. Standardizing the tool, template, and payment terms is the highest-impact open item.
+> **Policy location:** Invoicing policy is canonical in [Finance SOP §5](../sops/08_SOP_FINANCE.md). Exec sign-off pending on PROPOSED dunning and small-project items.
 
 | | |
 |---|---|
@@ -208,7 +208,7 @@ All steps below happen before any build work begins. **Do not begin Phase B unti
 | **Owner** | Account lead / finance |
 | **Exit criteria** | Invoice sent to client |
 
-> **TBD:** Document invoicing tool, template, deposit amount, payment terms, and follow-up cadence for unpaid invoices.
+> **Canonical policy:** Invoicing runs through **Stripe** (hosted invoices, ACH + card, automated reminders) with payouts reconciled in **Novo**. See [`docs/sops/08_SOP_FINANCE.md`](../sops/08_SOP_FINANCE.md) §5.1–5.4 for quote-to-cash flow, 40/30/30 project schedule, and proposed dunning cadence. Exec sign-off still pending on PROPOSED items (dunning, small-project trigger, milestone threshold).
 
 ---
 
@@ -259,9 +259,8 @@ Work performed after payment is received. Phase B loops through planning, buildi
 - Analytics, search console, ad accounts
 - For data/analytics projects: Salesforce, ERP, accounting systems (via secure credentials per NDA terms)
 
-**Bluehost:** Send clients to [mhgstrategy.com/webops/bluehost](https://mhgstrategy.com/webops/bluehost/) — Shaun receives an email invitation to accept admin access.
-
-> **TBD:** GoDaddy and other host admin access guides.
+> **Bluehost:** Live at [mhgstrategy.com/webops/bluehost](https://mhgstrategy.com/webops/bluehost/) — Shaun receives an email invitation to accept admin access.  
+> **GoDaddy:** Planned — will mirror the Bluehost guide pattern; blocked on screenshot capture from registrar walkthrough.
 
 ---
 
@@ -368,7 +367,7 @@ Maintenance expectations are captured during intake (monthly retainer vs. client
 
 Priority order:
 
-1. [ ] **Invoicing tool, template, deposit amount, and payment terms (A3.5)** — HIGHEST PRIORITY
+1. [x] **Invoicing tool, template, deposit amount, and payment terms (A3.5)** — Canonical policy in [Finance SOP §5](../sops/08_SOP_FINANCE.md); exec sign-off pending on PROPOSED dunning/small-project items
 2. [ ] GoDaddy and other host admin access guides (B1)
 3. [ ] Standard definition of a build "phase" (B3)
 4. [ ] MHGSYNC discovery dashboard workflow documentation

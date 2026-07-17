@@ -83,7 +83,7 @@ export function WebOpsAssessmentForm({ variant = 'dark' }: WebOpsAssessmentFormP
     setStatus('loading');
 
     try {
-      // TODO:TWENTYCRM — Replace Google Sheets lead write with TwentyCRM API call
+      // TwentyCRM dual-write planned — see docs/processes/TWENTYCRM_MIGRATION.md
       const trimmedName = fullName.trim();
       const trimmedWebsite = websiteUrl.trim();
       const intakePath = getIntakeHref(industry);
@@ -108,7 +108,7 @@ export function WebOpsAssessmentForm({ variant = 'dark' }: WebOpsAssessmentFormP
 
       await fetch(`${leadsUrl}?${params.toString()}`, { method: 'GET', mode: 'no-cors' });
 
-      // TODO:MHGSYNC — Wire automated email: send industry-specific intake link after WebOps lead capture
+      // Apps Script sends client confirmation email with intake + Cal links (see APPS_SCRIPT_LEADS_ENDPOINT.md)
       setSubmittedName(fullName.trim());
       setSubmittedIndustry(industry);
       setStatus('success');
@@ -349,7 +349,7 @@ export function VerticalLeadForm({ config }: VerticalLeadFormProps) {
     setStatus('loading');
 
     try {
-      // TODO:TWENTYCRM — Replace Google Sheets lead write with TwentyCRM API call
+      // TwentyCRM dual-write planned — see docs/processes/TWENTYCRM_MIGRATION.md
       const trimmedName = fullName.trim();
       const trimmedEmail = workEmail.trim();
       const trimmedPhone = phone.trim();
@@ -378,7 +378,7 @@ export function VerticalLeadForm({ config }: VerticalLeadFormProps) {
 
       await fetch(`${leadsUrl}?${params.toString()}`, { method: 'GET', mode: 'no-cors' });
 
-      // TODO:MHGSYNC — Wire automated email: send Cal.com link + intake link after lead capture
+      // Apps Script sends client confirmation email with intake + Cal links (see APPS_SCRIPT_LEADS_ENDPOINT.md)
       setSubmittedName(fullName.trim());
       setStatus('success');
       setFullName('');

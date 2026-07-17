@@ -231,7 +231,7 @@ Ambiguous fit → consult SC before routing. Volume spikes beyond SLA capacity �
 
 | Open item | Status |
 |-----------|--------|
-| TwentyCRM migration (replaces Sheets capture) | Planned |
+| TwentyCRM migration (replaces Sheets capture) | In progress — Sheets operational until cutover ([migration plan](../processes/TWENTYCRM_MIGRATION.md)) |
 | Formal handoff checklist in CRM | To build into TwentyCRM |
 | Top-of-funnel operational reference (ex-Sales SOP) | **Folded into §5.4–5.7** |
 
