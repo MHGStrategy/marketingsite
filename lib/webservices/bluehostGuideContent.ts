@@ -59,9 +59,9 @@ const signupSteps: GuideStepContent[] = [
     stepNumber: 2,
     title: 'Choose your Shared hosting plan',
     description:
-      'Choose the Starter plan — it\'s all a one-page business site needs. (Pick Business only if you plan to host multiple sites later.)',
+      'Choose the basic plan — it\'s all a one-page business site needs. (Pick Business only if you plan to host multiple sites later.)',
     imageSrc: 'signup-step-02-choose-plan',
-    imageAlt: 'Bluehost plan comparison with Starter and other Shared hosting tiers',
+    imageAlt: 'Bluehost plan comparison with the basic One Site tier and other Shared hosting options',
   },
   {
     stepNumber: 3,
