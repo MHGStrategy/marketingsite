@@ -7,9 +7,8 @@ export const BLUEHOST_ACCOUNT_MANAGER_URL = 'https://www.bluehost.com/my-account
 export const BLUEHOST_LOGIN_URL = 'https://www.bluehost.com/my-account/login';
 export const BLUEHOST_SIGNUP_HELP_URL =
   'https://www.bluehost.com/help/article/how-to-sign-up-for-an-account';
-
-// Bluehost CDN base — images from help.bluehost.com articles
-const BH_CDN = 'https://content.bluehost.com/bluehost/img/bluehost';
+export const BLUEHOST_USERS_ROLES_HELP_URL =
+  'https://www.bluehost.com/help/article/am-users-roles';
 
 export type GuideStepContent = {
   stepNumber: number;
@@ -137,43 +136,39 @@ const signupSteps: GuideStepContent[] = [
 ];
 
 // ---------------------------------------------------------------------------
-// Admin steps — imageSrc uses Bluehost CDN URLs where available.
-// To fill gaps: open https://www.bluehost.com/help/article/am-users-roles
-// in your browser, right-click each screenshot → Copy Image Address, paste below.
+// Admin steps — account owner only (invited admins cannot access Users & Roles).
+// Steps 2–5 are text-only; see Bluehost help article for visual reference.
 // ---------------------------------------------------------------------------
 const adminSteps: GuideStepContent[] = [
   {
     stepNumber: 1,
     title: 'Log in to the Bluehost Portal',
     description:
-      'Go to the Bluehost login page and sign in with the email and password you created during signup.',
-    // Google sign-in / login screen — confirmed working from Bluehost CDN
-    imageSrc: `${BH_CDN}/account/am-signin-google.png`,
-    imageAlt: 'Bluehost Portal login screen',
+      'Go to the Bluehost login page and sign in with the email and password you created during signup. You must be the account owner — invited users cannot add other admins.',
+    imageSrc: 'admin-step-01-login',
+    imageAlt: 'Bluehost Portal login with User ID, password, and social sign-in options',
     link: { href: BLUEHOST_LOGIN_URL, label: 'Log in to Bluehost' },
   },
   {
     stepNumber: 2,
     title: 'Open Users & Roles',
     description:
-      'Click the profile icon in the top-right corner, then select Users & Roles (or Accounts & Users) from the dropdown menu.',
-    // Profile icon dropdown — confirmed working from Bluehost CDN
-    imageSrc: `${BH_CDN}/account/am-account-my-profile.png`,
-    imageAlt: 'Bluehost profile icon and dropdown menu',
+      'From the portal, click your profile icon in the top-right corner (your initials), then select Users & Roles or Accounts & Users from the menu.\n\nIf you do not see this option, confirm you are logged in as the account owner — not as an invited admin.',
+    imageSrc: '',
+    link: { href: BLUEHOST_USERS_ROLES_HELP_URL, label: 'Bluehost Users & Roles help' },
   },
   {
     stepNumber: 3,
     title: 'Manage your account',
     description:
-      'Find your account in the list and click the Manage button next to it.',
-    // TODO: right-click the Step 3 screenshot on the Bluehost Users & Roles article and paste the URL here
+      'On the Users & Roles page, find your hosting account in the list and click Manage next to it.',
     imageSrc: '',
   },
   {
     stepNumber: 4,
     title: 'Add a new user',
     description:
-      'Scroll down to the User Roles & Permissions section and click the + Add User button.',
+      'Scroll to the User Roles & Permissions section and click + Add User.',
     imageSrc: '',
   },
   {
@@ -181,7 +176,10 @@ const adminSteps: GuideStepContent[] = [
     title: 'Invite MHG Strategy as Admin',
     description: `Enter the following details, then click Invite:\n\n• Name: ${MHG_ADMIN_NAME}\n• Email: ${MHG_ADMIN_EMAIL}\n• Role: Admin`,
     imageSrc: '',
-    tips: ['Shaun will receive an email to set up his own login — you never need to share your password.'],
+    tips: [
+      'Shaun will receive an email to set up his own login — you never need to share your password.',
+      'If anything in the menu looks different, use the Bluehost help link in Step 2 — the flow is the same even if labels vary slightly.',
+    ],
   },
 ];
 

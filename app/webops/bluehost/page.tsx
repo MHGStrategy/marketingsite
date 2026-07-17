@@ -10,6 +10,7 @@ import {
   BLUEHOST_ACCOUNT_MANAGER_URL,
   BLUEHOST_PRICING_NOTE,
   BLUEHOST_SIGNUP_HELP_URL,
+  BLUEHOST_USERS_ROLES_HELP_URL,
   bluehostGuideSections,
   hostingIncludedFeatures,
   MHG_ADMIN_EMAIL,
@@ -42,6 +43,20 @@ function GuideSection({
                 className="text-primary-blue font-semibold hover:underline"
               >
                 Bluehost signup help article
+              </a>
+            </p>
+          )}
+          {sectionKey === 'admin' && (
+            <p className="text-gray-500 text-sm mt-4">
+              Steps 2–5 must be done by the <strong className="text-gray-400">account owner</strong>{' '}
+              (the person who purchased hosting). Visual reference:{' '}
+              <a
+                href={BLUEHOST_USERS_ROLES_HELP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-blue font-semibold hover:underline"
+              >
+                Bluehost Users &amp; Roles help article
               </a>
             </p>
           )}
